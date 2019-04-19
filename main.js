@@ -4,13 +4,15 @@
 
 var rsa = require('cenfo-rsa');
 
-var C = rsa.encriptar("hola");
+var C = rsa.encriptar("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget quam augue. Etiam placerat lectus eget sapien interdum, eget l");
 var M = rsa.desencriptar(C);
 
+console.log("Encriptado: ")
 console.log(C);
+console.log("\nDesencriptado: ")
 console.log(M);
-console.log(String.fromCharCode(65,66,67)); // :)
-console.log('A'.charCodeAt(0)); // :)
+//console.log(String.fromCharCode(65,66,67)); // :)
+//console.log('A'.charCodeAt(0)); // :)
 console.log("fin de la ejecucion");
 
 
