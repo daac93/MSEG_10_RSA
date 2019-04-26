@@ -4,8 +4,14 @@
 
 var rsa = require('cenfo-rsa');
 
+var bigInt = require('big-integer');
+var util = require('cenfo-util');
+
+util.gdc(bigInt(3), bigInt(9));
+
 var C = rsa.encriptar("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget quam augue. Etiam placerat lectus eget sapien interdum, eget l");
 var M = rsa.desencriptar(C);
+
 
 console.log("Encriptado: ")
 console.log(C);
