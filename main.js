@@ -9,7 +9,8 @@ var util = require('cenfo-util');
 
 util.gdc(bigInt(3), bigInt(9));
 
-var C = rsa.encriptar("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget quam augue. Etiam placerat lectus eget sapien interdum, eget l");
+//var C = rsa.encriptar("LOL");
+var C = rsa.encriptar("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget quam augue. Etiam placerat lectus eget sapien interdum, eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
 var M = rsa.desencriptar(C);
 
 
