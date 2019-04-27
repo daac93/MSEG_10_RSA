@@ -88,69 +88,52 @@ describe('cenfo-util', function() {
 });
 
 
+describe('cenfo-util', function() {
+  describe('Obtener d de p=11, q=13)- caso 2', function() {
+    it('Debe devolver true e(11, 13) = 103', function() {
+      util.obtener_e(bigInt(11), bigInt(13));
+      util.obtener_n(bigInt(11), bigInt(13));
+      assert.equal(util.obtener_d().toString() , "103");
+    });
+  });
+});
+
+
 
 describe('cenfo-rsa', function() {
-  describe('Cenfo-rsa convertirNumeroEnASCII - caso 1', function() {
-    it('Debe devolver true si 109 para letra = m', function() {
-      assert.equal(rsa.convertirNumeroEnASCII(bigInt(109)), 'm');
-    });
-  });
-});
-describe('cenfo-rsa', function() {
-  describe('Cenfo-rsa convertirStringAHexadecimal - caso 1', function() {
-    it('Debe devolver true si hola mundo para Hexadecimal = 686f6c61206d756e646f', function() {
-      assert.equal(rsa.convertirStringAHexadecimal('hola mundo'), '686f6c61206d756e646f');
-    });
-  });
-});
-describe('cenfo-rsa', function() {
-  describe('Cenfo-rsa convertirStringAHexadecimal - caso 1', function() {
-    it('Debe devolver true si proyecto final para Hexadecimal = 70726f796563746f2066696e616c', function() {
-      assert.equal(rsa.convertirStringAHexadecimal('proyecto final'), '70726f796563746f2066696e616c');
-    });
-  });
-});
-describe('cenfo-rsa', function() {
   describe('Cenfo-rsa encriptar - caso 1', function() {
-    it('Debe devolver true si encriptar(Lorem ipsum dolor sit amet.) = 30737354030698936222115415441797276786017459202286968483441081018018539223148045141025163376359361049522564212119525820592289598022098408275350099807627037062605205849239393949085896742178943743065412108904221244866874071325081464463216476050789351218745974312031397406233136589006856792898358789945948949855815617118142176 ', function() {
-      assert.equal(rsa.encriptar("Lorem ipsum dolor sit amet."), "30737354030698936222115415441797276786017459202286968483441081018018539223148045141025163376359361049522564212119525820592289598022098408275350099807627037062605205849239393949085896742178943743065412108904221244866874071325081464463216476050789351218745974312031397406233136589006856792898358789945948949855815617118142176");
+    it('Debe devolver true si encriptar(Lorem ipsum dolor sit amet.) = 438976 1367631 1481544 1030301 1295029 32768 1157625 1404928 1520875 1601613 1295029 32768 1000000 1367631 1259712 1367631 1481544 32768 1520875 1157625 1560896 32768 912673 1295029 1030301 1560896 97336', function() {
+      assert.equal(rsa.encriptar("Lorem ipsum dolor sit amet."), "438976 1367631 1481544 1030301 1295029 32768 1157625 1404928 1520875 1601613 1295029 32768 1000000 1367631 1259712 1367631 1481544 32768 1520875 1157625 1560896 32768 912673 1295029 1030301 1560896 97336");
     });
   });
 });
 describe('cenfo-rsa', function() {
   describe('Cenfo-rsa encriptar - caso 2', function() {
-    it('Debe devolver true si encriptar(test) = 28398488382729219270761165135453002903829459968 ', function() {
-      assert.equal(rsa.encriptar("test"), "28398488382729219270761165135453002903829459968");
+    it('Debe devolver true si encriptar(test) = 1560896 1030301 1520875 1560896 ', function() {
+      assert.equal(rsa.encriptar("test"), "1560896 1030301 1520875 1560896");
     });
   });
 });
 describe('cenfo-rsa', function() {
   describe('Cenfo-rsa encriptar - caso 3', function() {
-    it('Debe devolver true si encriptar("") = 0', function() {
-      assert.equal(rsa.encriptar(""), "0");
+    it('Debe devolver true si encriptar("") = ""', function() {
+      assert.equal(rsa.encriptar(""), "");
     });
   });
 });
 describe('cenfo-rsa', function() {
   describe('Cenfo-rsa desencriptar - caso 1', function() {
-    it('Debe devolver true si desencriptar(30737354030698936222115415441797276786017459202286968483441081018018539223148045141025163376359361049522564212119525820592289598022098408275350099807627037062605205849239393949085896742178943743065412108904221244866874071325081464463216476050789351218745974312031397406233136589006856792898358789945948949855815617118142176) = Lorem ipsum dolor sit amet.', function() {
-      var C = rsa.encriptar("Lorem ipsum dolor sit amet.");
-      assert.equal(rsa.desencriptar(C), "Lorem ipsum dolor sit amet.");
+    it('Debe devolver true si desencriptar(970299 1367631 1331000 1520875 1030301 970299 1560896 1030301 1560896 1601613 1481544 32768 912673 1000000 1157625 1404928 1157625 1520875 970299 1157625 1331000 1092727 32768 1030301 1259712 1157625 1560896) = Lorem ipsum dolor sit amet.', function() {
+      var C = rsa.encriptar("consectetur adipiscing elit");
+      assert.equal(rsa.desencriptar(C), "consectetur adipiscing elit");
     });
   });
 });
 describe('cenfo-rsa', function() {
   describe('Cenfo-rsa desencriptar - caso 2', function() {
-    it('Debe devolver true si desencriptar(28398488382729219270761165135453002903829459968) = test', function() {
+    it('Debe devolver true si desencriptar(1560896 1030301 1520875 1560896) = test', function() {
       var C = rsa.encriptar("test");
       assert.equal(rsa.desencriptar(C), "test");
-    });
-  });
-});
-describe('cenfo-rsa', function() {
-  describe('Cenfo-rsa desencriptar - caso 2', function() {
-    it('Debe devolver true si desencriptar(0) = ""', function() {
-      assert.equal(rsa.desencriptar(0), "");
     });
   });
 });
